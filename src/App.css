@@ -1,0 +1,42 @@
+.App {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+.title {
+  margin: 0 auto;
+  margin-bottom: 30px;
+  color: beige;
+}
+
+.score {
+  color: blueviolet;
+  font-size: 25px;
+}
+
+.questionContainer {
+  width: 475px;
+  height: auto;
+  margin: 0 auto;
+  background-color: #00f3ff;
+}
+
+.questionForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.questionForm label {
+  padding: 20px 0px;
+}
+
+.questionForm label:last-child {
+  margin-bottom: 30px;
+}
+
+.questionForm button {
+  width: 80px;
+  margin: 0px auto;
+}
