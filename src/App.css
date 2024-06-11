@@ -90,5 +90,7 @@ button[type="submit"]:hover {
 
   .meme {
     max-width: 80%;
+    top: 250%;
+    left: 50%;
   }
 }
