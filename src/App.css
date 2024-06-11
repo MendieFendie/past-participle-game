@@ -68,3 +68,27 @@ button[type="submit"]:hover {
 .hidden {
   display: none;
 }
+
+/* For mobile phones: */
+@media only screen and (max-width: 600px) {
+  .questionForm {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .questionForm p {
+    font-size: 16px;
+  }
+
+  label {
+    font-size: 14px;
+  }
+
+  button[type="submit"] {
+    font-size: 14px;
+  }
+
+  .meme {
+    max-width: 80%;
+  }
+}
