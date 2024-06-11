@@ -80,19 +80,21 @@ function App() {
                 Яка правильна форма слова {question.word.base}(
                 {question.word.ukrainian}) в past participle?
               </p>
-              {question.options.map((option, index) => (
-                <label key={index} htmlFor={`answer${index}`}>
-                  <input
-                    type="radio"
-                    id={`answer${index}`}
-                    name="answer"
-                    value={option}
-                    onChange={handleChange}
-                    checked={selectedAnswer === option}
-                  />
-                  {option}
-                </label>
-              ))}
+              <div className="answers">
+                {question.options.map((option, index) => (
+                  <label key={index} htmlFor={`answer${index}`}>
+                    <input
+                      type="radio"
+                      id={`answer${index}`}
+                      name="answer"
+                      value={option}
+                      onChange={handleChange}
+                      checked={selectedAnswer === option}
+                    />
+                    {option}
+                  </label>
+                ))}
+              </div>
               <button type="submit">submit</button>
             </form>
           )}

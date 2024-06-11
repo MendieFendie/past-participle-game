@@ -33,9 +33,14 @@
   margin-bottom: 20px;
 }
 
+.answers {
+  padding-left: 196px;
+}
+
 label {
   display: block;
   margin-bottom: 15px;
+  text-align: left;
 }
 
 input[type="radio"] {
@@ -86,6 +91,10 @@ button[type="submit"]:hover {
 
   button[type="submit"] {
     font-size: 14px;
+  }
+
+  .answers {
+    padding-left: 114px;
   }
 
   .meme {
