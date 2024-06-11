@@ -1,6 +1,8 @@
 import "./App.css";
 import { useEffect, useState } from "react";
 import listOfWords from "./verbs";
+import Sokiable from "./images.jpeg";
+import toast, { Toaster } from "react-hot-toast";
 
 function App() {
   const [verbs, setVerbs] = useState(listOfWords);
@@ -16,13 +18,8 @@ function App() {
 
   function createQuestion() {
     const word = getRandomWord();
-    const options = [word.pastParticiple];
-    while (options.length < 4) {
-      const randomWord = getRandomWord().pastParticiple;
-      if (!options.includes(randomWord)) {
-        options.push(randomWord);
-      }
-    }
+    const options = [...word.wrongAnswers, word.pastParticiple];
+
     options.sort(() => Math.random() - 0.5);
     return { word, options };
   }
@@ -36,14 +33,24 @@ function App() {
 
     if (question.word.pastParticiple === selectedAnswer) {
       setScore(score + 1);
-    } else if (mistake === 3) {
-      alert("Ви зробили 3 помилки!Гра закінчена.");
+      toast.success(`Successfully! Your score:${score + 1}`);
+    } else if (mistake === 2) {
+      toast("Ви зробили 3 помилки! Гра закінчена.");
+      document.getElementById("quationForm").classList.add("hidden");
+      setTimeout(() => {
+        document.getElementById("quationForm").classList.remove("hidden");
+      }, 2000);
+      document.getElementById("meme").classList.remove("hidden");
+      setTimeout(() => {
+        document.getElementById("meme").classList.add("hidden");
+      }, 2000);
+
       setVerbs(listOfWords);
       setScore(0);
       setMistake(0);
     } else {
       setMistake(mistake + 1);
-      alert(`Помилка!Залишилось ${3 - mistake} спроби`);
+      toast.error(`Помилка! Залишилось ${2 - mistake} спроби `);
     }
     setVerbs((prevArray) => prevArray.filter((word) => word !== question.word));
     setSelectedAnswer(null);
@@ -55,13 +62,16 @@ function App() {
 
   return (
     <>
+      <div>
+        <Toaster position="top-center" reverseOrder={false} />
+      </div>
       <div className="App">
         <p className="title">Easy way to learn past participle words</p>
         <p className="score">Score: {score}</p>
-
         <div className="questionContainer">
           {question && (
             <form
+              id="quationForm"
               className="questionForm"
               action="submit"
               onSubmit={handleSubmit}
@@ -87,6 +97,7 @@ function App() {
             </form>
           )}
         </div>
+        <img id="meme" alt="Meme" src={Sokiable} className="meme hidden" />
       </div>
     </>
   );

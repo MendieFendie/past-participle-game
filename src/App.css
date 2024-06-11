@@ -1,42 +1,70 @@
 .App {
-  display: flex;
-  justify-content: center;
+  font-family: Arial, sans-serif;
   text-align: center;
-  flex-direction: column;
+  position: relative;
 }
 
 .title {
-  margin: 0 auto;
-  margin-bottom: 30px;
-  color: beige;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
 }
 
 .score {
-  color: blueviolet;
-  font-size: 25px;
+  font-size: 30px;
+  margin-bottom: 20px;
+  color: antiquewhite;
 }
 
 .questionContainer {
-  width: 475px;
-  height: auto;
-  margin: 0 auto;
-  background-color: #00f3ff;
+  margin-bottom: 40px;
 }
 
 .questionForm {
-  display: flex;
-  flex-direction: column;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  background-color: #f9f9f9;
 }
 
-.questionForm label {
-  padding: 20px 0px;
+.questionForm p {
+  font-size: 18px;
+  margin-bottom: 20px;
 }
 
-.questionForm label:last-child {
-  margin-bottom: 30px;
+label {
+  display: block;
+  margin-bottom: 15px;
 }
 
-.questionForm button {
-  width: 80px;
-  margin: 0px auto;
+input[type="radio"] {
+  margin-right: 10px;
+}
+
+button[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.meme {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: auto;
+}
+
+.hidden {
+  display: none;
 }
